@@ -1,0 +1,49 @@
+{
+  "project": {
+    "name": "movie-recommender",
+    "task": "top_n_recommendation",
+    "feedback_type": "explicit_to_ranking"
+  },
+  "data": {
+    "dataset_family": "movielens",
+    "raw_root_dir": "data/raw",
+    "processed_root_dir": "data/processed",
+    "active_dataset": "ml-latest",
+    "datasets": {
+      "ml-latest-small": {
+        "raw_subdir": "ml-latest-small",
+        "ratings_filename": "ratings.csv",
+        "movies_filename": "movies.csv",
+        "tags_filename": "tags.csv",
+        "links_filename": "links.csv",
+        "users_filename": null
+      },
+      "ml-latest": {
+        "raw_subdir": "ml-latest",
+        "ratings_filename": "ratings.csv",
+        "movies_filename": "movies.csv",
+        "tags_filename": "tags.csv",
+        "links_filename": "links.csv",
+        "users_filename": null
+      }
+    }
+  },
+  "evaluation": {
+    "split_strategy": "temporal",
+    "k_values": [
+      5,
+      10
+    ],
+    "filter_seen_items": true,
+    "metrics": [
+      "precision_at_k",
+      "recall_at_k",
+      "ndcg_at_k",
+      "map_at_k"
+    ]
+  },
+  "paths": {
+    "artifacts_root_dir": "artifacts_new"
+  }
+}
+
