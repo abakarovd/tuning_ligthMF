@@ -1,0 +1,8 @@
+ipython
+jupyter
+lightfm
+matplotlib
+numpy
+pandas
+scipy
+seaborn
