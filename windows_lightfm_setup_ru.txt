@@ -1,0 +1,63 @@
+Windows setup and run guide
+
+1. Скачать и установить Miniconda
+
+Команды для PowerShell:
+Invoke-WebRequest -Uri "https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe" -OutFile ".\Miniconda3-latest-Windows-x86_64.exe"
+Start-Process .\Miniconda3-latest-Windows-x86_64.exe
+
+Что выбрать при установке:
+- Just Me
+- обычную папку без пробелов, например curr_conda
+- не ставить как Administrator без необходимости
+
+2. Создать conda-окружение и установить LightFM
+
+Выполнять в Anaconda Prompt:
+conda create -n lightfm_env python=3.10 -y
+conda activate lightfm_env
+python --version
+conda install -c conda-forge lightfm -y
+
+3. Перейти в рабочую папку
+
+cd Desktop
+mkdir Tuning
+cd Tuning
+
+4. Проверить Git и скачать проект
+
+git init
+git clone https://github.com/abakarovd/tuning_ligthMF.git
+cd tuning_ligthMF
+
+5. Установить зависимости проекта
+
+Команды:
+python -m pip install --upgrade pip setuptools wheel
+pip install -r requirements.txt
+
+6. Скачать и распаковать данные MovieLens
+
+Команды для Windows:
+mkdir data
+mkdir data\raw
+curl -L "https://files.grouplens.org/datasets/movielens/ml-latest.zip" -o "data\raw\ml-latest.zip"
+curl -L "https://files.grouplens.org/datasets/movielens/ml-latest-small.zip" -o "data\raw\ml-latest-small.zip"
+powershell -command "Expand-Archive -Force 'data\raw\ml-latest.zip' 'data\raw'"
+powershell -command "Expand-Archive -Force 'data\raw\ml-latest-small.zip' 'data\raw'"
+
+
+Дальше не нужно (лучше через VS)
+7. Запустить Jupyter
+
+jupyter notebook
+
+8. Запускать ноутбуки в таком порядке
+
+Сначала:
+notebooks/02_preprocessing_and_split.ipynb
+
+Потом:
+notebooks/11_1_lightfm_hyperparam_tuning_i9.ipynb
+
