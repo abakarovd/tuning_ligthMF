@@ -8,8 +8,9 @@ Start-Process .\Miniconda3-latest-Windows-x86_64.exe
 
 Что выбрать при установке:
 - Just Me
-- обычную папку без пробелов, например curr_conda
-- не ставить как Administrator без необходимости
+- с пути не должны быть папки с кирилицей
+- установить в PATH 
+- ставить как Administrator
 
 2. Создать conda-окружение и установить LightFM
 
